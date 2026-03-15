@@ -25,7 +25,7 @@ We take a model that already knows how to translate (MarianMT by Helsinki-NLP) a
 
 1. Clone the repo
 ```bash
-git clone https://github.com/CptMike/text-translation
+git clone https://github.com/CptMike/text_translation_dl
 cd DLProject
 ```
 
