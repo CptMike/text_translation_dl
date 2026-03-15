@@ -1,0 +1,25 @@
+# Deep Learning
+torch
+torchvision
+
+# HuggingFace
+transformers
+datasets
+evaluate
+accelerate
+tokenizers
+sentencepiece
+
+# Translation metrics
+sacrebleu
+bert-score
+
+# Frontend
+streamlit
+
+# Utilities
+numpy
+pandas
+tqdm
+ipykernel
+ipywidgets
