@@ -3,6 +3,7 @@
 
 import os
 import numpy as np
+import torch
 from transformers import (
     MarianMTModel,
     MarianTokenizer,
@@ -34,6 +35,19 @@ def compute_metrics(eval_preds, tokenizer):
     return {'bleu': round(result['score'], 4)}
 
 
+def cuda_works():
+    # some old GPUs are detected but not actually compatible with the pytorch version
+    try:
+        torch.zeros(1).cuda()
+        return True
+    except Exception:
+        return False
+
+use_cpu = not (torch.cuda.is_available() and cuda_works())
+if use_cpu:
+    print("no compatible GPU found, training on CPU")
+
+
 def train():
     data, tokenizer = get_tokenized_datasets()
 
@@ -63,6 +77,7 @@ def train():
         logging_steps=50,
         save_total_limit=2,
         fp16=False,
+        use_cpu=use_cpu,
         report_to='none',
     )
 

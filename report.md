@@ -71,3 +71,7 @@ A  web interface was built with Streamlit. After training, the model is loaded i
 
 ---
 
+## 9. Notes
+
+During testing on a second machine, training failed because the available GPU (NVIDIA GTX 960) was too old to be supported by the current version of PyTorch. PyTorch detected the GPU but could not run on it, causing a CUDA error. The code was updated to automatically detect this situation and fall back to CPU training, so the project works on any machine regardless of GPU compatibility.
+
