@@ -1,5 +1,4 @@
 # Fine-tune MarianMT on English to Greek translation
-# Run: python3 train.py
 
 import os
 import numpy as np

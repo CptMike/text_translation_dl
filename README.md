@@ -1,12 +1,8 @@
 # English to Greek Translation
 
-A Deep Learning course project that fine-tunes a pre-trained translation model to translate text from English to Greek.
+## Project Overview
 
----
-
-## What is this project?
-
-We take a model that already knows how to translate (MarianMT by Helsinki-NLP) and make it better by training it on a book dataset. We then measure how good the translations are using two metrics: BERTScore and SacreBLEU.
+A Deep Learning course project that fine-tunes a pre-trained translation model to translate text from English to Greek. We take a model that already knows how to translate (MarianMT by Helsinki-NLP) and make it better by training it on a book dataset. We then measure how good the translations are using two metrics: BERTScore and SacreBLEU.
 
 ---
 
