@@ -37,7 +37,9 @@ def compute_metrics(eval_preds, tokenizer):
 def cuda_works():
     # some old GPUs are detected but not actually compatible with the pytorch version
     try:
-        torch.zeros(1).cuda()
+        a = torch.zeros(1).cuda()
+        b = torch.ones(1).cuda()
+        _ = (a + b).item()  # forces a compute kernel — fails on sm_52, caught by except
         return True
     except Exception:
         return False

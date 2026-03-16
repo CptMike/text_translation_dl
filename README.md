@@ -22,7 +22,7 @@ A Deep Learning course project that fine-tunes a pre-trained translation model t
 1. Clone the repo
 ```bash
 git clone https://github.com/CptMike/text_translation_dl
-cd DLProject
+cd text_translation_dl
 ```
 
 2. Create a virtual environment

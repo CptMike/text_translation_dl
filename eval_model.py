@@ -12,14 +12,24 @@ MODEL_PATH = './outputs/finetuned-en-el/best-model'
 NUM_SAMPLES = 100
 
 
+def cuda_works():
+    try:
+        a = torch.zeros(1).cuda()
+        b = torch.ones(1).cuda()
+        _ = (a + b).item()  # forces a compute kernel — fails on sm_52, caught by except
+        return True
+    except Exception:
+        return False
+
+
 def load_model_and_tokenizer(model_path):
     print("loading model...")
     tok = MarianTokenizer.from_pretrained(model_path)
     model = MarianMTModel.from_pretrained(model_path)
     model.eval()
 
-    # use GPU if available, otherwise CPU
-    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    # use GPU if available and compute-capable, otherwise CPU
+    device = 'cuda' if (torch.cuda.is_available() and cuda_works()) else 'cpu'
     model.to(device)
     print(f"using device: {device}")
     return model, tok
